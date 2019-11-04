@@ -2,9 +2,9 @@
 
 
 var mongoose = require('mongoose'),
-  Task = mongoose.model('Tasks');
+    Task = mongoose.model('Tasks');
 
-exports.list_all_tasks = function(req, res) {
+exports.list_all_tasks = function (req, res) {
     function list_tasks() {
         return function (err, task) {
             if (err)
@@ -17,10 +17,8 @@ exports.list_all_tasks = function(req, res) {
 };
 
 
-
-
-exports.create_a_task = function(req, res) {
-  var new_task = new Task(req.body);
+exports.create_a_task = function (req, res) {
+    var new_task = new Task(req.body);
 
     function create_task() {
         return function (err, task) {
@@ -34,7 +32,7 @@ exports.create_a_task = function(req, res) {
 };
 
 
-exports.read_a_task = function(req, res) {
+exports.read_a_task = function (req, res) {
     function read_task() {
         return function (err, task) {
             if (err)
@@ -47,7 +45,7 @@ exports.read_a_task = function(req, res) {
 };
 
 
-exports.update_a_task = function(req, res) {
+exports.update_a_task = function (req, res) {
     function update_task() {
         return function (err, task) {
             if (err)
@@ -60,7 +58,7 @@ exports.update_a_task = function(req, res) {
 };
 
 
-exports.delete_a_task = function(req, res) {
+exports.delete_a_task = function (req, res) {
 
 
     function delete_task() {
@@ -72,6 +70,6 @@ exports.delete_a_task = function(req, res) {
     }
 
     Task.remove({
-    _id: req.params.taskId
+        _id: req.params.taskId
     }, delete_task(req, res));
 };
