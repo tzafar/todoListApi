@@ -2,8 +2,9 @@
 
 function send_response_back(res) {
     return function (err, task) {
-        if (err)
+        if (err) {
             res.send(err);
+        }
         res.json(task);
     };
 }
