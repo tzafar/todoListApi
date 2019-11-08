@@ -25,7 +25,6 @@ exports.read_a_task = function (req, res) {
     Task.findById(req.params.taskId, send_response_back(res));
 };
 
-
 exports.update_a_task = function (req, res) {
     Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, send_response_back(res));
 };
