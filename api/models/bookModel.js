@@ -65,3 +65,16 @@ exports.remove = (bookId) => {
     });
   })
 };
+
+
+exports.remove_all = () => {
+    return new Promise((resolve, reject) => {
+        Book.deleteMany({}, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(err);
+            }
+        });
+    })
+};

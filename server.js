@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-let database_connection_string = 'mongodb://35.161.57.180/Tododb';
+let database_connection_string = 'mongodb://34.222.58.218/Tododb';
 mongoose.connect(database_connection_string, {useNewUrlParser: true, useUnifiedTopology: true});
 
 var express_app = express();
@@ -16,5 +16,7 @@ routes(express_app); //register the route
 
 var on_port = process.env.PORT || 3000;
 express_app.listen(on_port);
+
+module.exports = express_app
 
 console.log('todo list RESTful API server started on: ' + on_port);
