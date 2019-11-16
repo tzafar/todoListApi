@@ -21,7 +21,7 @@ exports.create_a_book = function (req, res) {
 };
 
 exports.read_a_book = function (req, res) {
-    Book.findById(req.params.bookId).then(
+    BookModel.findById(req.params.bookId).then(
         (book) => {
             res.status(200).send(book);
         }
