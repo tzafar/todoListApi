@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-let database_connection_string = 'mongodb://54.190.192.129/books';
+let database_connection_string = 'mongodb://34.221.211.157/books-api';
 mongoose.connect(database_connection_string, {useNewUrlParser: true, useUnifiedTopology: true});
 
 var express_app = express();

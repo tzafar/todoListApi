@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var BookSchema = new Schema({
   name: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: 'Missing field! Kindly enter the name of the book'
   },
   Created_date: {
     type: Date,

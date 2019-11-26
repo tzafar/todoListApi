@@ -4,7 +4,7 @@ const expect = require("chai").expect;
 const app = require("../server");
 
 function insertBook() {
-    const book = {name: "java"};
+    const book = { name: "java" };
     return Book.createBook(book);
 }
 
@@ -41,4 +41,24 @@ describe("api/users", () => {
         })
     });
 
+    describe("/PUT Edit a book", () => {
+        it("should update an existing book", async () => {
+            var book = await insertBook();
+            const request_path = "/books/" + book.id;
+            var book_data = { name: "updated_book_title" };
+            const res = await request(app).put(request_path)
+            .send(book_data);
+            expect(res.status).to.equal(200);
+        });
+    });
+
+    describe("/POST a book", () => {
+        it("yeh save kar lo", async () => {
+            const book_data = { name: "book_title" };
+            const res = await request(app)
+              .post("/books")
+              .send(book_data);
+            expect(res.status).to.equal(200);
+          });
+      });
 });

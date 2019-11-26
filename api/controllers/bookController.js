@@ -26,7 +26,7 @@ exports.read_a_book = function (req, res) {
             res.status(200).send(book);
         }
     );
-};
+}; 
 
 exports.update_a_book = function (req, res) {
     BookModel.findOneAndUpdate({_id: req.params.bookId}, req.body).then(
