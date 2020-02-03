@@ -1,10 +1,10 @@
 const Book = require("../api/models/bookModel");
 const request = require("supertest");
 const expect = require("chai").expect;
-const app = require("../server");
+const app = require("../app");
 
 function insertBook() {
-    const book = { name: "java" };
+    const book = { name: "jhoolo" };
     return Book.createBook(book);
 }
 
@@ -28,7 +28,7 @@ describe("api/users", () => {
             let request_path = "/books/" + maybeInsertedBook.id;
             const res = await request(app).get(request_path);
             expect(res.status).to.equal(200);
-            expect(res.body.name).to.equal("java");
+            expect(res.body.name).to.equal("jhoolo");
         });
     });
 
@@ -54,7 +54,7 @@ describe("api/users", () => {
 
     describe("/POST a book", () => {
         it("yeh save kar lo", async () => {
-            const book_data = { name: "book_title" };
+            const book_data = { name: "updated book title" };
             const res = await request(app)
               .post("/books")
               .send(book_data);
